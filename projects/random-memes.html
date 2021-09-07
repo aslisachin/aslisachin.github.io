@@ -101,7 +101,7 @@
         $(document).ready(function () {
           $(".btn").on("click", function () {
             $.getJSON("https://meme-api.herokuapp.com/gimme", function (json) {
-              $("#the-quote").fadeOut("slow", function () {
+              $("#the-quote").fadeOut("4000", function () {
                 $("#the-quote").attr("src",json.url);
                 $("#the-quote").fadeIn("slow");
               });
