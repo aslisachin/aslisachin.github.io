@@ -18,6 +18,26 @@
             background-image: url('bg.png');
         }
 
+        .loading {
+            opacity: 0.7;
+            animation: loading 1s linear infinite alternate;
+            margin: auto;
+            width: 80%;
+            max-width: 512px;
+            border-radius: 5px;
+            min-height: 200px;
+        }
+
+        @keyframes loading {
+            0% {
+                background-color: hsl(200, 20%, 70%);
+            }
+
+            100% {
+                background-color: hsl(20, 20%, 95%);
+            }
+        }
+
         .container {
             display: block;
             margin-top: 20px;
@@ -32,12 +52,15 @@
             color: rgb(29, 28, 28);
             max-width: 80%;
         }
-        #the-quote{
-            margin:auto;
-            width:80%;
-            max-width:512px;
-            border-radius:5px;
+
+        #the-quote {
+            margin: auto;
+            width: 80%;
+            max-width: 512px;
+            border-radius: 5px;
+            min-height: 200px;
         }
+
         .avatar {
             border-radius: 50%;
             width: 150px;
@@ -76,9 +99,6 @@
         .link:hover {
             box-shadow: 0px 13px 27px -5px rgba(50, 50, 93, 0.25), 0px 8px 16px -8px rgba(0, 0, 0, 0.3), 0px -6px 16px -6px rgba(0, 0, 0, 0.025);
         }
-        #the-quote{
-            margin: 10px;
-        }
     </style>
 </head>
 
@@ -87,28 +107,31 @@
         <h1 class="name">Random Memes</h1>
         <hr />
         <div id="quote-block">
-            <img src="" id="the-quote">
-            <br/>
-            <div class="link btn">New Fact</div>
+            <!--<div class="loading"></div>-->
+            <img src="" id="the-quote" class="">
+            <br />
+            <br />
+            <div class="link btn">New Meme</div>
         </div>
 
 
     </div>
 
+
     <div class="container">&copy; AsliSachin</div>
 
     <script>
         $(document).ready(function () {
-          $(".btn").on("click", function () {
-            $.getJSON("https://meme-api.herokuapp.com/gimme", function (json) {
-              $("#the-quote").fadeOut("4000", function () {
-                $("#the-quote").attr("src",json.url);
-                $("#the-quote").fadeIn("slow");
-              });
+            $(".btn").on("click", function () {
+                $.getJSON("https://meme-api.herokuapp.com/gimme", function (json) {
+                    $("#the-quote").fadeOut("4000", function () {
+                        $("#the-quote").attr("src", json.url);
+                        $("#the-quote").fadeIn("slow");
+                    });
+                });
             });
-          });
 
-          $(".btn").trigger("click");
+            $(".btn").trigger("click");
         });
     </script>
 </body>
