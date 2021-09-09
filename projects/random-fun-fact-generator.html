@@ -126,8 +126,11 @@
                         $("#the-quote").fadeIn("slow");
                         $("#quote-cat").fadeIn("slow");
                         $("html").css({
-                            'background-image': 'url("'+json.data.cat+'.jpg") no-repeat center center fixed',
-                            'background-size': 'cover'
+                            'background-image': 'url("'+json.data.cat+'.jpg")',
+                            'background-size': 'cover',
+                            'background-repeat': 'no-repeat',
+                            'background-attachment': 'fixed',
+                            'background-position': 'center'
                         });
                     });
 
