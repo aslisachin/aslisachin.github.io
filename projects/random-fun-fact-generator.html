@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
     <style>
-        body {
+        .body {
             max-width: 600px;
             background-color: #4d4d52;
             margin: auto;
@@ -91,7 +91,7 @@
     </style>
 </head>
 
-<body>
+<body class="body">
         <div class="container">
             <h1 class="name">Fun Fact</h1>
             <hr />
@@ -123,6 +123,7 @@
                         $('#quote-cat').html("Category: " + json.data.cat);
                         $("#the-quote").fadeIn("slow");
                         $("#quote-cat").fadeIn("slow");
+                        $(".body").css("background-image", "url('"+json.data.cat+".jpg')");
                     });
 
                 });
@@ -146,6 +147,9 @@
             }, 10000);
         }
     </script>
+
+
+<!-- https://github.com/aslisachin/aslisachin.github.io/blob/main/projects/human.jpg -->
 </body>
 
 </html>
