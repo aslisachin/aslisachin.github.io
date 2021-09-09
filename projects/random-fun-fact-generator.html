@@ -127,11 +127,12 @@
                         $('#quote-cat').html("Category: " + json.data.cat);
                         $("#the-quote").fadeIn("slow");
                         $("#quote-cat").fadeIn("slow");
-                        $("body").css({
-                            'background-image': 'url("' + json.data.cat + '.jpg")',
-                            'background-position:': 'center',
-                            'background-size': 'cover',
-                            'background-repeat': 'no-repeat'
+                        $("html").css({
+                            'background-image': 'url("' + json.data.cat + '.jpg") no-repeat center center fixed',
+                            '-webkit-background-size': 'center',
+                            '-moz-background-size': 'cover',
+                            '-o-background-size': 'cover',
+                            'background-size': 'cover'
                         });
                     });
 
