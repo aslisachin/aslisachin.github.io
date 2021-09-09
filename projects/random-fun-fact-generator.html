@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
     <style>
-        .body {
+        body {
             max-width: 600px;
             background-color: #4d4d52;
             margin: auto;
@@ -126,7 +126,7 @@
                         $('#quote-cat').html("Category: " + json.data.cat);
                         $("#the-quote").fadeIn("slow");
                         $("#quote-cat").fadeIn("slow");
-                        $(".body").css({
+                        $("body").css({
                             'background-image': 'url("' + json.data.cat + '.jpg")',
                             'background-position:': 'center',
                             'background-size': 'cover',
