@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/css/halfmoon-variables.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/js/halfmoon.min.js"></script>
+    <script src="https://kit.fontawesome.com/7aca193a5d.js" crossorigin="anonymous" defer></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card shadow">
+            <form id="fupForm" name="form1" method="GET">
+                <div class="form-group">
+                    <label for="fact">VIDEO:</label>
+                    <input class="form-control" id="video" placeholder="video" name="video" />
+                </div>
+                <input type="button" name="save" class="btn btn-primary" value="Extract" id="butsave">
+            </form>
+        </div>
+
+        <div class="card shadow" id="tags">
+
+        </div>
+
+    </div>
+    <script>
+        $(document).ready(function () {
+            $('#butsave').on('click', function () {
+                // $("#butsave").attr("disabled", "disabled");
+                var video = $('#video').val();
+                if (video != "") {
+                    var settings = {
+                        "url": "https://tools.apgy.in/api/tags.php",
+                        "method": "POST",
+                        "data": {
+                            ytvideo: video
+                        }
+                    };
+
+                    $.ajax(settings).done(function (response) {
+                        console.log(response);
+                        var jx = JSON.parse(JSON.stringify(response));
+                        if (jx.status == 200) {
+                            alert("Worked!");
+
+                            var tags_arr = jx.tags;
+                            let data = ``;
+                            for (var i = 0; i < tags_arr.length; i++) {
+                                var tag = tags_arr[i];
+                                data += `<span class="badge ml-5 mb-5">${tag}</span>`;
+                            }
+                            $('#tags').html(data);
+                        }
+                        else if (tagsdata.status == 201) {
+                            alert("Error occured !");
+                        }
+                    });
+                }
+                else {
+                    alert('Please fill all the field !');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
