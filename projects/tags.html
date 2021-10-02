@@ -71,6 +71,7 @@
                             $("#tags").fadeIn();
                             $("#butsave").removeAttr("disabled");
                             $("#butsave").html(`Extract`);
+                            grecaptcha.reset();
                         }
                         else if (jx.status == 201) {
                             alert("Error occured !");
