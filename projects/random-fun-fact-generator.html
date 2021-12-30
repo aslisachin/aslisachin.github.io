@@ -124,7 +124,7 @@
         $(document).ready(function () {
 
             $(".btn").on("click", function () {
-                $.getJSON("https://asli-fun-fact-api.herokuapp.com/", function (json) {
+                $.getJSON("https://api.apgy.in/api/fun-facts.php", function (json) {
                     $("#quote-cat").fadeOut("slow");
                     $('#the-quote').fadeOut('slow', function () {
                         $('#the-quote').html(json.data.fact);
